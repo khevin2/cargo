@@ -1,0 +1,1 @@
+select *,'imported' as status from import union select *,'exported' as status from export
