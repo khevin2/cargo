@@ -34,21 +34,24 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
 </head>
 
 <body>
-    <div class="login">
-        <form action="" method="POST">
+    <div class="container">
+        <div class="card align-items-center justify-content-center m-5 py-5 px-1">
             <?php
         if(isset($_GET['invalid'])) include('invalid.php');
         ?>
-            <h2>LOGIN</h2>
-            <table>
+            <h2 class="logo">LOGIN</h2>
+             <form action="" method="POST">
+            
+            <table class="table">
                 <tr>
                     <td>USERNAME</td>
                     <TD>
-                        <input type="text" name="user" id="">
+                        <input type="text" name="user">
                     </TD>
                 </tr>
                 <tr>
@@ -56,17 +59,18 @@ if(isset($_POST['submit'])){
                         PASSWORD
                     </td>
                     <td>
-                        <input type="password" name="pass" id="">
+                        <input type="password" name="pass" >
                     </td>
                 </tr>
                 <tr>
-                    <td colspan=2>
-                        <input type="submit" name="submit" id="" value="LOGIN">
+                    <td colspan=2 class="btn-lg">
+                        <input type="submit" name="submit"  value="LOGIN">
                     </td>
                 </tr>
             </table>
         </form>
-        <div class="logo">CARGO LTD.</div>
+        <div class="logo">CARGO LTD.</div> </div>
+        
     </div>
 </body>
 
