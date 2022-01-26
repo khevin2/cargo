@@ -14,44 +14,56 @@ if($_SESSION['loggedin'] != 1) header('location:login.php?next=dashboard');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXPORT</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="nav">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="navbar-nav col-sm-3">
             <!-- NAVIGATION  -->
-            <h3>
+            <h3 class="p-3 border bg-light m-1">
                 <?php  echo strtoupper($_SESSION['user']);  ?>
             </h3>
-            <ul>
-                <li><a href="dashboard.php">DASHBOARD</a></li>
-                <li><a href="export.php">EXPORT</a></li>
-                <li><a href="import.php">IMPORT</a></li>
-                <li><a href="report.php">REPORT</a></li>
-                <li id="logout"><a href="logout.php">LOGOUT</a></li>
+            <ul class="list-group">
+                <li class="nav-link my-3 mx-2 card px-4 py-3"><a href="dashboard.php">DASHBOARD</a></li>
+                <li class="nav-link my-3 mx-2 card px-5 py-3"><a href="export.php">EXPORT</a></li>
+                <li class="nav-link my-3 mx-2 card px-5 py-3"><a href="import.php">IMPORT</a></li>
+                <li class="nav-link my-3 mx-2 card px-5 py-3"><a href="report.php">REPORT</a></li>
+                <li id="logout" class="nav-link my-3 mx-2 card px-5 py-3 rounded-pill"><a href="logout.php">LOGOUT</a></li>
             </ul>
         </div>
-        <div class="content">
+        <div class="card me-1 col-sm-8 my-2">
             <!-- CONTENT  -->
-            <div class="logo">CARGO LTD.</div>
-            <div class="main">
-                <form action="" method="post">
-                    <table>
-                        <tr>
-                            <td colspan="5">EXPORT</td>
-                        </tr>
-                        <tr>
-                            <td>FUNITURE ID <input type="text" name="funid" id=""></td>
-                            <td>FURNITIRE NAME <input type="text" name="name" id=""> </td>
-                            <td>FURNITURE OWNER <input type="text" name="owner" id=""> </td>
-                            <td>EXPORT DATE <input type="date" name="date" id=""></td>
-                            <td> QUANTITY <input type="number" name="quantity" id=""></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"><input type="submit" value="GO" name='submit'></td>
-                        </tr>
-                    </table>
+            <div class="card-title border bg-light p-4 mt-2 ">CARGO LTD.</div>
+            <div class="card-body">
+            <div class="container-md">
+                <div class="card-subtitle mx-5 fs-3">EXPORT</div>
+                <form action="" method="post" class="border p-3">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col">
+                            <label for="id">ID </label>
+                            <input type="text" name="funid" id="id">
+                        </div>
+                        <div class="col">
+                            <label for="name">NAME </label> 
+                            <input type="text" name="name" id="name">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center my-2">
+                        <div class="col">
+                            <label for="owner">OWNER</label>  
+                            <input type="text" name="owner" id="owner"></div>
+                        <div class="col">
+                            <label for="date">DATE</label>  
+                            <input type="date" name="date" id="date"></div>
+                    </div>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col">
+                            <label for="quantity">QUANTITY</label>  
+                            <input type="number" name="quantity" id="quantuty"></div>
+                        <div class="col"><input type="submit" value="GO" name='submit'></div>
                 </form>
 
                 <div class="table">
@@ -62,18 +74,18 @@ if($_SESSION['loggedin'] != 1) header('location:login.php?next=dashboard');
                     $row = mysqli_num_rows($return);
                     echo "<table>";
                     echo "<tr>
-                    <td>FURNITURE ID</td>
-                    <td>FURNITURE NAME</td>
-                    <td>IMPORT DATE</td>
-                    <td>QUANTITY</td>
+                    <th class = 'border-end'>FURNITURE ID</th>
+                    <th class = 'border-end'>FURNITURE NAME</th>
+                    <th class = 'border-end'>IMPORT DATE</th>
+                    <th class = 'border-end'>QUANTITY</th>
                     </tr>
                     ";
                     while($rows = mysqli_fetch_array($return)){
                         echo "<tr>";
-                        echo "<td>".$rows['furid']."</td>";
-                        echo "<td>".$rows['furname']."</td>";
-                        echo "<td>".$rows['exportdate']."</td>";
-                        echo "<td>".$rows['quantity']."</td>";
+                        echo "<td class= 'border-end'>".$rows['furid']."</td>";
+                        echo "<td class = 'border-end'>".$rows['furname']."</td>";
+                        echo "<td class = 'border-end'>".$rows['exportdate']."</td>";
+                        echo "<td class = 'border-end'>".$rows['quantity']."</td>";
                         echo "</tr>";
                     }
                     echo "</table>";
@@ -83,9 +95,9 @@ if($_SESSION['loggedin'] != 1) header('location:login.php?next=dashboard');
                 </div>
             </div>
         </div>
+        </div>
 
     </div>
-    CYUSA KHEVEN
 </body>
 
 </html>
